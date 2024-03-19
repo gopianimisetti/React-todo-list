@@ -1,11 +1,12 @@
+
 .App {
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -36,3 +37,15 @@
     transform: rotate(360deg);
   }
 }
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 600px) {
+  .App-header {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .App-logo {
+    height: 20vmin; /* Adjust logo size for smaller screens */
+  }
+}
+

@@ -5,10 +5,10 @@ const Todo = () => {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = () => {
-    if(newTodo===""){
+    if (newTodo === "") {
       alert("task should not be empty")
     }
-    else if(newTodo!=='') {
+    else if (newTodo !== '') {
       setTodos([...todos, newTodo]);
       setNewTodo('');
     }
@@ -27,24 +27,28 @@ const Todo = () => {
   };
 
   return (
-    <div className='card' style={{marginTop: '100px', marginLeft: 'auto', marginRight: 'auto', maxWidth: '450px', padding: '40px', backgroundColor: 'cyan'}}>
-      <input
-        style={{padding: '10px', borderRadius: '20px', margin: '10px', width: '100%'}}
-        type="text"
-        value={newTodo}
-        placeholder="Enter a task"
-        onChange={(e) => setNewTodo(e.target.value)}
-      />
-      <button style={{padding: '10px', borderRadius: '10px', backgroundColor: 'lightgreen', width: '100%'}} onClick={addTodo}>Submit</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index} style={{marginBottom: '10px'}}>
-            {todo}
-            <button style={{backgroundColor: 'darkviolet', margin: '5px', padding: '5px'}} onClick={() => deleting(index)}>Delete</button>
-            <button style={{backgroundColor: 'snow', margin: '5px', padding: '5px'}} onClick={() => editing(index, prompt('Enter new todo text:'))}>Edit</button>
-          </li>
-        ))}
-      </ul>
+    <div style={{ backgroundColor: "navajowhite", height: "800px", paddingTop: "100px" }}>
+      <div className='card' style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '450px', padding: '40px', backgroundColor: '#E5EAF5' }}>
+        <input
+          style={{ padding: '10px', borderRadius: '10px', margin: '10px', width: '90%' }}
+          type="text"
+          value={newTodo}
+          placeholder="Enter a task"
+          onChange={(e) => setNewTodo(e.target.value)}
+        />
+        <center><button style={{ marginTop: "20px", padding: '10px', borderRadius: '10px', border: "none", backgroundColor: 'green', width: '100px' }} onClick={addTodo}>Submit</button></center>
+        
+        
+            {todos.map((todo, index) => (
+              <li key={index} style={{ marginTop:"10px",marginBottom: '10px',marginLeft:"10px" }}>
+                {todo}
+                <button style={{  marginLeft: '5px', padding: '8px',border:"none",backgroundColor:"red" }} onClick={() => deleting(index)}>Delete</button>
+                <button style={{  margin: '5px', padding: '8px',border:"none",backgroundColor:"gray" }} onClick={() => editing(index, prompt('Enter new todo text:'))}>Edit</button>
+              </li>
+            ))}
+          
+        
+      </div>
     </div>
   );
 };
